@@ -1,0 +1,26 @@
+﻿namespace DropDown1.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class Table : DbMigration
+    {
+        public override void Up()
+        {
+            CreateTable(
+                "dbo.tbl_Data",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Data = c.String(),
+                    })
+                .PrimaryKey(t => t.ID);
+            
+        }
+        
+        public override void Down()
+        {
+            DropTable("dbo.tbl_Data");
+        }
+    }
+}
